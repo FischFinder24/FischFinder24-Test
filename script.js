@@ -1,9 +1,8 @@
-const supabase = supabase.createClient(
-  "https://esvbufmzaiphhnszcigm.supabase.co",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." // anonymen Key hier einfügen
-);
+// Supabase-Client initialisieren
+const supabaseUrl = "https://esvbufmzaiphhnszcigm.supabase.co";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."; // <-- dein echter anon key
+const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
-// Prüfe Login-Status beim Laden der Seite
 window.addEventListener("DOMContentLoaded", async () => {
   const {
     data: { user },
@@ -36,6 +35,7 @@ async function login() {
 
   if (error) {
     alert("Login fehlgeschlagen: " + error.message);
+    console.error(error);
   } else {
     alert("Login erfolgreich!");
     showFishForm();
@@ -55,9 +55,10 @@ async function saveFish() {
 
   const {
     data: { user },
+    error: userError,
   } = await supabase.auth.getUser();
 
-  if (!user) {
+  if (userError || !user) {
     alert("Nicht eingeloggt!");
     return;
   }

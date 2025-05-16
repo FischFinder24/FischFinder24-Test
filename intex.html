@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FischFinder24</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <!-- Supabase SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.5"></script>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Dein JS (nach allen anderen) -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <h1>FischFinder24</h1>
+
+  <!-- Startbildschirm -->
+  <div id="start-screen">
+    <h2>Willkommen bei FischFinder24</h2>
+    <p>Dokumentiere deine Fischfunde direkt auf der Karte.</p>
+    <button id="start-button">Los geht’s</button>
+  </div>
+
+  <!-- Auth-Formular -->
+  <div id="auth" style="display:none;">
+    <input type="email" id="email" placeholder="E-Mail">
+    <input type="password" id="password" placeholder="Passwort">
+    <button id="signup">Registrieren</button>
+    <button id="login">Einloggen</button>
+    <button id="logout" style="display:none;">Ausloggen</button>
+  </div>
+
+  <!-- Karte -->
+  <div id="map" style="display:none;"></div>
+</body>
+</html>

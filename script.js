@@ -137,11 +137,18 @@ async function loadFishFinds() {
 async function deleteFish(id) {
   if (!confirm("Diesen Fund wirklich löschen?")) return;
 
-  const { data, error } = await supabase
+  const { error } = await supabase
     .from("fish_finds")
-   
+    .delete()
+    .eq("id", id);
 
-  });
+  if (error) {
+    alert("Löschen fehlgeschlagen: " + error.message);
+  } else {
+    alert("Eintrag gelöscht!");
+    loadFishFinds(); // neu laden
+  }
 }
+
 
 

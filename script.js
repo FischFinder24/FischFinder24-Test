@@ -1,12 +1,13 @@
 // Supabase-Client initialisieren
 const supabaseUrl = "https://esvbufmzaiphhnszcigm.supabase.co";
-const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVzdmJ1Zm16YWlwaGhuc3pjaWdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDczODY1NzcsImV4cCI6MjA2Mjk2MjU3N30.bbGb6ucq04cSycYup7fS_PO9E9Z0UjBxVkqpizj4w-4"; //
-const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVzdmJ1Zm16YWlwaGhuc3pjaWdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDczODY1NzcsImV4cCI6MjA2Mjk2MjU3N30.bbGb6ucq04cSycYup7fS_PO9E9Z0UjBxVkqpizj4w-4"; // 
+const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
+// Beim Laden prüfen, ob User schon eingeloggt ist
 window.addEventListener("DOMContentLoaded", async () => {
   const {
     data: { user },
-  } = await supabase.auth.getUser();
+  } = await supabaseClient.auth.getUser();
   if (user) {
     showFishForm();
   } else {
@@ -28,13 +29,14 @@ async function login() {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  const { data, error } = await supabase.auth.signInWithPassword({
+  const { data, error } = await supabaseClient.auth.signInWithPassword({
     email,
     password,
   });
 
   if (error) {
     alert("Login fehlgeschlagen: " + error.message);
+    console.error(error);
   } else {
     alert("Login erfolgreich!");
     showFishForm();
@@ -42,7 +44,7 @@ async function login() {
 }
 
 async function logout() {
-  await supabase.auth.signOut();
+  await supabaseClient.auth.signOut();
   alert("Abgemeldet.");
   showLoginForm();
 }
@@ -55,14 +57,14 @@ async function saveFish() {
   const {
     data: { user },
     error: userError,
-  } = await supabase.auth.getUser();
+  } = await supabaseClient.auth.getUser();
 
   if (userError || !user) {
     alert("Nicht eingeloggt!");
     return;
   }
 
-  const { error, data } = await supabase.from("fish_finds").insert([
+  const { error, data } = await supabaseClient.from("fish_finds").insert([
     {
       user_id: user.id,
       fish_name: fishName,
@@ -73,6 +75,7 @@ async function saveFish() {
 
   if (error) {
     alert("Fehler beim Speichern: " + error.message);
+    console.error(error);
   } else {
     alert("Fisch gespeichert!");
     document.getElementById("fishname").value = "";

@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>FischFinder24</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <style>
-    body { font-family: sans-serif; text-align: center; }
-    #map { height: 400px; width: 100%; margin-top: 20px; }
-    form { margin: 20px auto; max-width: 400px; text-align: left; }
-    label, input, button { display: block; width: 100%; margin-bottom: 10px; }
-    #logoutBtn { margin-top: 20px; }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <img src="logo.png" alt="Logo" width="200" />
-  
+
   <div id="loginForm">
     <h2>Bitte anmelden</h2>
     <input id="email" type="email" placeholder="E-Mail" />
@@ -40,11 +34,12 @@
     <button id="logoutBtn" onclick="logout()">Abmelden</button>
   </div>
 
-  <!-- Richtige Reihenfolge: Supabase zuerst laden, dann Leaflet, dann dein Code -->
+  <!-- Scripts: Supabase und Leaflet zuerst, dann dein Script mit defer -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
+
 
 

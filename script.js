@@ -1,7 +1,6 @@
-window.addEventListener("DOMContentLoaded", async () => {
-  const supabaseUrl = "https://esvbufmzaiphhnszcigm.supabase.co";
-  const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhuYXV4cGtyY3dwZHR2ZXp4eGZqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcyMjIyMTcsImV4cCI6MjA2Mjc5ODIxN30.SvjV6zh_rBJ94z9AXbbH5aqt2U-RAkoLzgAmuChKDK4"; // 
-  const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+const supabaseUrl = "https://esvbufmzaiphhnszcigm.supabase.co";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhuYXV4cGtyY3dwZHR2ZXp4eGZqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcyMjIyMTcsImV4cCI6MjA2Mjc5ODIxN30.SvjV6zh_rBJ94z9AXbbH5aqt2U-RAkoLzgAmuChKDK4";
+const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 let map, marker;
 
@@ -46,7 +45,7 @@ async function logout() {
 }
 
 function initMap() {
-  if (map) return; // nur einmal erstellen
+  if (map) return;
   map = L.map('map').setView([48.5, 10], 5);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
@@ -93,7 +92,7 @@ async function saveFish(event) {
     fish_name: fishName,
     lat,
     lng,
-    images: imageUrls // optional: images-Feld in Tabelle hinzufügen
+    images: imageUrls
   }]);
 
   if (error) {

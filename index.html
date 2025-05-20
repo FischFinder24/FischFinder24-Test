@@ -14,6 +14,7 @@
 </head>
 <body>
   <img src="logo.png" alt="Logo" width="200" />
+  
   <div id="loginForm">
     <h2>Bitte anmelden</h2>
     <input id="email" type="email" placeholder="E-Mail" />
@@ -29,7 +30,7 @@
       <input type="text" id="fishname" required />
 
       <label for="photos">Fotos (mehrere erlaubt)</label>
-      <input type="file" id="photos" multiple accept=\"image/*\" />
+      <input type="file" id="photos" multiple accept="image/*" />
 
       <input type="hidden" id="lat" />
       <input type="hidden" id="lng" />
@@ -39,6 +40,7 @@
     <button id="logoutBtn" onclick="logout()">Abmelden</button>
   </div>
 
+  <!-- Richtige Reihenfolge: Supabase zuerst laden, dann Leaflet, dann dein Code -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="script.js"></script>

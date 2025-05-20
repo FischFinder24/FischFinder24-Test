@@ -1,60 +1,106 @@
-body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  background: #f2f2f2;
+html, body {
   margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: sans-serif;
+  background-color: #f8f9fa;
+}
+
+#logo {
+  display: block;
+  margin: 20px auto;
+  max-width: 160px;
+}
+
+#loginForm {
+  max-width: 300px;
+  margin: 30px auto;
   padding: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-#auth input {
+#loginForm input,
+#loginForm button {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
   padding: 10px;
-  margin: 5px;
-}
-
-button {
-  padding: 10px 15px;
-  margin: 5px;
-  cursor: pointer;
-  border: none;
   border-radius: 5px;
-  background-color: #2196f3;
-  color: white;
-  transition: background-color 0.2s ease;
+  border: 1px solid #ccc;
 }
 
-button:hover {
-  background-color: #1976d2;
+#loginForm button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#loginForm button:hover {
+  background-color: #0056b3;
+}
+
+#mainApp {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
 }
 
 #map {
-  height: 500px;
-  margin-top: 20px;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
 }
 
-/* Startbildschirm */
-#start-screen {
-  margin-top: 100px;
+#controlPanel {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  width: 280px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-#start-screen h2 {
-  font-size: 28px;
-  margin-bottom: 10px;
+#controlPanel h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
 }
 
-#start-screen p {
-  font-size: 18px;
-  margin-bottom: 20px;
+#controlPanel label {
+  font-weight: bold;
+  margin-top: 10px;
+  display: block;
 }
 
-#start-button {
-  font-size: 18px;
-  padding: 12px 30px;
-  background-color: #4caf50;
+#controlPanel input[type="text"],
+#controlPanel input[type="file"],
+#controlPanel button {
+  width: 100%;
+  margin-top: 6px;
+  margin-bottom: 12px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+#controlPanel button {
+  background-color: #28a745;
   color: white;
-  border-radius: 8px;
-  transition: background-color 0.2s ease;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-#start-button:hover {
-  background-color: #388e3c;
+#controlPanel button[type="button"] {
+  background-color: #dc3545;
+}
+
+#controlPanel button:hover {
+  opacity: 0.9;
 }

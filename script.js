@@ -112,28 +112,33 @@ async function loadFishFinds() {
   const { data, error } = await supabase.from("fish_finds").select("*");
   if (error) return;
 
- data.forEach((find) => {
-  L.marker([find.lat, find.lng])
-    .addTo(map)
-    .bindPopup(`
-      <strong>${find.fish_name}</strong><br>
-      ${
-        find.images && Array.isArray(find.images)
+  data.forEach((find) => {
+    L.marker([find.lat, find.lng])
+      .addTo(map)
+      .bindPopup(() => {
+        const imageList = typeof find.images === "string"
           ? JSON.parse(find.images)
-              .map(
-                (url) =>
-                  `<a href="${url}" target="_blank"><img src="${url}" style="max-width:100px; margin-top:5px;" /></a>`
-              )
-              .join('')
-          : ''
-      }
-      <br>
-      <button onclick="deleteFish('${find.id}')">🗑️ Löschen</button>
-    `);
-});
-} // <--- ←←← WICHTIG: Hier endet loadFishFinds richtig!
+          : find.images;
 
-// Und jetzt AUẞERHALB:
+        const imageHtml = Array.isArray(imageList)
+          ? imageList.map(url => `
+              <a href="${url}" target="_blank">
+                <img src="${url}" style="max-width:100px; margin-top:5px;" />
+              </a>
+            `).join('')
+          : '';
+
+        return `
+          <strong>${find.fish_name}</strong><br>
+          ${imageHtml}
+          <br>
+          <button onclick="deleteFish('${find.id}')">🗑️ Löschen</button>
+        `;
+      });
+  });
+}
+
+// Und jetzt AUSSERHALB:
 async function deleteFish(id) {
   if (!confirm("Diesen Fund wirklich löschen?")) return;
 
@@ -146,9 +151,10 @@ async function deleteFish(id) {
     alert("Löschen fehlgeschlagen: " + error.message);
   } else {
     alert("Eintrag gelöscht!");
-    loadFishFinds(); // neu laden
+    loadFishFinds(); // Karte neu laden
   }
 }
+
 
 
 

@@ -115,13 +115,36 @@ async function loadFishFinds() {
   data.forEach((find) => {
     L.marker([find.lat, find.lng])
       .addTo(map)
-      .bindPopup(`
+   .bindPopup(`
   <strong>${find.fish_name}</strong><br>
- ${find.images
-  ? JSON.parse(find.images).map(
-      url => `<a href="${url}" target="_blank"><img src="${url}" style="max-width:100px; margin-top:5px;" /></a>`
+  ${find.images && Array.isArray(find.images)
+    ? JSON.parse(find.images).map(
+        url => `<a href="${url}" target="_blank"><img src="${url}" style="max-width:100px; margin-top:5px;" /></a>`
+      ).join('')
+    : ''}
+  <br>
+  <button onclick="deleteFish('${find.id}')">🗑️ Löschen</button>
+`)
 
-    ).join('')
+ async function deleteFish(id) {
+  if (!confirm("Diesen Fund wirklich löschen?")) return;
+
+  const { data, error } = await supabase
+    .from("fish_finds")
+    .delete()
+    .eq("id", id);
+
+  if (error) {
+    alert("Löschen fehlgeschlagen: " + error.message);
+  } else {
+    alert("Eintrag gelöscht!");
+    loadFishFinds(); // Karte neu laden
+  }
+}
+
+  }
+}
+
   : ''
 }
 

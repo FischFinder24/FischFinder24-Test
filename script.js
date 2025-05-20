@@ -5,13 +5,18 @@ const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 let map, marker;
 
 window.addEventListener("DOMContentLoaded", async () => {
-  const { data: { user } } = await supabase.auth.getUser();
-  if (user) {
+  const { data: { session } } = await supabase.auth.getSession();
+
+  if (!session) {
+    // Kein aktiver Login → Loginformular anzeigen
+    showLogin();
+  } else {
+    // Bereits eingeloggt → sofort App anzeigen
     showApp();
     initMap();
     loadFishFinds();
-  } else {
-    showLogin();
+
+
   }
 });
 

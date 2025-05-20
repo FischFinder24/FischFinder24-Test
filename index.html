@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <img src="logo.png" alt="Logo" width="200" />
+  <img src="logo.png" alt="Logo" id="logo" />
 
   <div id="loginForm">
     <h2>Bitte anmelden</h2>
@@ -17,24 +17,27 @@
   </div>
 
   <div id="mainApp" style="display: none;">
-    <h2>Fisch-Fund eintragen</h2>
     <div id="map"></div>
-    <form onsubmit="saveFish(event)">
-      <label for="fishname">Fischname</label>
-      <input type="text" id="fishname" required />
 
-      <label for="photos">Fotos (mehrere erlaubt)</label>
-      <input type="file" id="photos" multiple accept="image/*" />
+    <div id="controlPanel">
+      <h3>Fisch-Fund eintragen</h3>
+      <form onsubmit="saveFish(event)">
+        <label for="fishname">Fischname</label>
+        <input type="text" id="fishname" required />
 
-      <input type="hidden" id="lat" />
-      <input type="hidden" id="lng" />
+        <label for="photos">Fotos (mehrere erlaubt)</label>
+        <input type="file" id="photos" multiple accept="image/*" />
 
-      <button type="submit">Speichern</button>
-    </form>
-    <button id="logoutBtn" onclick="logout()">Abmelden</button>
+        <input type="hidden" id="lat" />
+        <input type="hidden" id="lng" />
+
+        <button type="submit">Speichern</button>
+        <button type="button" onclick="logout()">Abmelden</button>
+      </form>
+    </div>
   </div>
 
-  <!-- Supabase & Leaflet zuerst, dann script.js MIT defer -->
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="script.js" defer></script>

@@ -119,7 +119,8 @@ async function loadFishFinds() {
   <strong>${find.fish_name}</strong><br>
  ${find.images
   ? JSON.parse(find.images).map(
-      url => `<img src="${url}" style="max-width:100px; margin-top:5px;" />`
+      url => `<a href="${url}" target="_blank"><img src="${url}" style="max-width:100px; margin-top:5px;" /></a>`
+
     ).join('')
   : ''
 }

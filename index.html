@@ -1,47 +1,48 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>FischFinder24</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      margin-top: 40px;
-    }
-    #fishForm {
-      display: none;
-      margin-top: 30px;
-    }
+    body { font-family: sans-serif; text-align: center; }
+    #map { height: 400px; width: 100%; margin-top: 20px; }
+    form { margin: 20px auto; max-width: 400px; text-align: left; }
+    label, input, button { display: block; width: 100%; margin-bottom: 10px; }
+    #logoutBtn { margin-top: 20px; }
   </style>
 </head>
 <body>
-  <!-- Logo -->
   <img src="logo.png" alt="Logo" width="200" />
-
-  <!-- Login-Bereich -->
   <div id="loginForm">
     <h2>Bitte anmelden</h2>
-    <input id="email" type="email" placeholder="E-Mail" /><br /><br />
-    <input id="password" type="password" placeholder="Passwort" /><br /><br />
+    <input id="email" type="email" placeholder="E-Mail" />
+    <input id="password" type="password" placeholder="Passwort" />
     <button onclick="login()">Login</button>
   </div>
 
-  <!-- Fisch-Fund-Formular -->
-  <div id="fishForm">
+  <div id="mainApp" style="display: none;">
     <h2>Fisch-Fund eintragen</h2>
-    <input id="fishname" type="text" placeholder="Fischname" /><br /><br />
-    <input id="lat" type="number" step="0.0001" placeholder="Breitengrad" /><br /><br />
-    <input id="lng" type="number" step="0.0001" placeholder="Längengrad" /><br /><br />
-    <button onclick="saveFish()">Speichern</button>
-    <br /><br />
-    <button onclick="logout()">Abmelden</button>
+    <div id="map"></div>
+    <form onsubmit="saveFish(event)">
+      <label for="fishname">Fischname</label>
+      <input type="text" id="fishname" required />
+
+      <label for="photos">Fotos (mehrere erlaubt)</label>
+      <input type="file" id="photos" multiple accept=\"image/*\" />
+
+      <input type="hidden" id="lat" />
+      <input type="hidden" id="lng" />
+
+      <button type="submit">Speichern</button>
+    </form>
+    <button id="logoutBtn" onclick="logout()">Abmelden</button>
   </div>
 
-  <!-- Supabase-Client zuerst laden -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-  <!-- Dann dein eigenes Script -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
+
 

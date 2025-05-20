@@ -126,6 +126,7 @@ async function loadFishFinds() {
   <button onclick="deleteFish('${find.id}')">🗑️ Löschen</button>
 `)
 
+    }
  async function deleteFish(id) {
   if (!confirm("Diesen Fund wirklich löschen?")) return;
 

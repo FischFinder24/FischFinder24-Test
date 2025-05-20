@@ -3,13 +3,7 @@ html, body {
   padding: 0;
   height: 100%;
   font-family: sans-serif;
-  background-color: #f8f9fa;
-}
-
-#logo {
-  display: block;
-  margin: 20px auto;
-  max-width: 160px;
+  background: #f0f0f0;
 }
 
 #loginForm {
@@ -52,6 +46,9 @@ html, body {
 #map {
   height: 100%;
   width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 1;
 }
 
@@ -103,4 +100,16 @@ html, body {
 
 #controlPanel button:hover {
   opacity: 0.9;
+}
+
+#logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  max-width: 140px;
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }

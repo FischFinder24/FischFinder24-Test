@@ -115,7 +115,17 @@ async function loadFishFinds() {
   data.forEach((find) => {
     L.marker([find.lat, find.lng])
       .addTo(map)
-      .bindPopup(`<strong>${find.fish_name}</strong><br><small>${find.user_id}</small>`);
+      .bindPopup(`
+  <strong>${find.fish_name}</strong><br>
+ ${find.images
+  ? JSON.parse(find.images).map(
+      url => `<img src="${url}" style="max-width:100px; margin-top:5px;" />`
+    ).join('')
+  : ''
+}
+
+`);
+;
   });
 }
 

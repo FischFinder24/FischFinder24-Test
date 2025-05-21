@@ -9,12 +9,14 @@
 <body>
   <img src="logo.png" alt="Logo" id="logo" />
 
-  <div id="loginForm">
-    <h2>Bitte anmelden</h2>
-    <input id="email" type="email" placeholder="E-Mail" />
-    <input id="password" type="password" placeholder="Passwort" />
-    <button onclick="login()">Login</button>
-  </div>
+ <div id="loginForm">
+  <h2>Bitte anmelden oder registrieren</h2>
+  <input id="email" type="email" placeholder="E-Mail" required />
+  <input id="password" type="password" placeholder="Passwort" required />
+  <button onclick="login()">Login</button>
+  <button onclick="register()">Registrieren</button>
+</div>
+
 
   <div id="mainApp" style="display: none;">
     <div id="map"></div>

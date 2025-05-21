@@ -1,13 +1,13 @@
-body, html {
+html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: Arial, sans-serif;
+  font-family: sans-serif;
 }
 
 #mainApp {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   position: relative;
 }
 
@@ -17,61 +17,51 @@ body, html {
   z-index: 1;
 }
 
-/* Formular rechts unten */
-#fishForm {
+#logoContainer {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+#logo {
+  height: 80px;
+}
+
+#controlPanel {
   position: absolute;
   bottom: 20px;
   right: 20px;
   background: rgba(255, 255, 255, 0.95);
-  padding: 16px;
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
-  z-index: 999;
-  max-width: 300px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 220px;
 }
 
-/* Logo links unten */
-#logo-container {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  z-index: 999;
-}
-
-#logo {
-  width: 100px;
-  border-radius: 12px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
-}
-
-/* Inputs */
-#fishForm input[type="text"],
-#fishForm input[type="file"] {
-  width: 100%;
-  margin-bottom: 12px;
-  padding: 8px;
+#controlPanel input[type="text"],
+#controlPanel input[type="file"] {
+  padding: 6px;
   border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: 4px;
 }
 
-/* Buttons */
-#fishForm button {
-  width: 100%;
-  padding: 10px;
-  margin-top: 8px;
+#controlPanel button {
+  padding: 8px;
   border: none;
-  border-radius: 6px;
+  border-radius: 4px;
   color: white;
-  font-weight: bold;
   cursor: pointer;
 }
 
-/* Blautöne */
-#saveBtn {
-  background-color: #007BFF; /* kräftiges Blau */
+#controlPanel button[type="submit"] {
+  background-color: #3182ce;
 }
 
-#logoutBtn {
-  background-color: #5a92c7; /* sanftes Graublau */
+#controlPanel button[type="button"] {
+  background-color: #63b3ed;
 }
-

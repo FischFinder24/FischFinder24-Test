@@ -71,8 +71,5 @@ html, body {
 
 #controlPanel button:hover {
   opacity: 0.9;
-  #mainApp {
-  display: block !important;
-}
 
 }

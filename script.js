@@ -4,29 +4,19 @@ const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 let map, marker;
 
-// Initialisieren nach Laden der Seite
-document.addEventListener("DOMContentLoaded", async () => {
-  // Login-Button mit Funktion verbinden
-  document.querySelector("#loginForm button").addEventListener("click", login);
-
-  // Session abfragen
+window.addEventListener("DOMContentLoaded", async () => {
   const { data: { session } } = await supabase.auth.getSession();
-  console.log("Aktive Session:", session);
-
-  // Logout über URL-Schalter
-  if (window.location.hash === "#logout") {
-    await supabase.auth.signOut();
-    window.location.hash = "";
-    showLogin();
-    return;
-  }
 
   if (!session) {
+    // Kein aktiver Login → Loginformular anzeigen
     showLogin();
   } else {
+    // Bereits eingeloggt → sofort App anzeigen
     showApp();
     initMap();
     loadFishFinds();
+
+
   }
 });
 
@@ -38,8 +28,6 @@ function showLogin() {
 function showApp() {
   document.getElementById("loginForm").style.display = "none";
   document.getElementById("mainApp").style.display = "block";
-  document.getElementById("controlPanel").style.display = "block";
-  console.log("Login erfolgreich, App wird angezeigt");
 }
 
 async function login() {
@@ -150,6 +138,7 @@ async function loadFishFinds() {
   });
 }
 
+// Und jetzt AUSSERHALB:
 async function deleteFish(id) {
   if (!confirm("Diesen Fund wirklich löschen?")) return;
 

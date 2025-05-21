@@ -124,23 +124,17 @@ html, body {
 }
 
 #logo {
-  position: fixed;           /* Fixiert im Sichtfenster */
-  bottom: 10px;              /* Abstand zur unteren Kante */
-  left: 10px;                /* Abstand zur linken Kante */
-  z-index: 1000;
-  width: 80px;               /* Feste Breite (statt max-width) */
-  height: auto;              /* Höhe automatisch passend */
-
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  width: 80px;
+  height: auto;
   background: white;
-  padding: 2px;              /* Sehr dünner Rahmen */
+  padding: 4px;
   border-radius: 6px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
+  z-index: 1000;
 
 
-}
-
-
-}
 
 }

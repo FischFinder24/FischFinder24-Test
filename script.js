@@ -25,24 +25,6 @@ const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 let map, marker;
 
-window.addEventListener("DOMContentLoaded", async () => {
-  const { data: { session } } = await supabase.auth.getSession();
-  console.log("Aktive Session:", session);
-
-  if (window.location.hash === "#logout") {
-    await supabase.auth.signOut();
-    window.location.hash = "";
-    showLogin();
-    return;
-  }
-
-  if (!session) {
-    showLogin();
-  } else {
-    showApp();
-    initMap();
-    loadFishFinds();
-  }
 });
 
 

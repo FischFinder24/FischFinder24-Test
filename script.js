@@ -42,6 +42,19 @@ async function login() {
     initMap();
     loadFishFinds();
   }
+
+  async function register() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  const { data, error } = await supabase.auth.signUp({ email, password });
+
+  if (error) {
+    alert("Registrierung fehlgeschlagen: " + error.message);
+  } else {
+    alert("Registrierung erfolgreich. Bitte überprüfe deine E-Mails zur Bestätigung.");
+  }}
+
 }
 
 async function logout() {

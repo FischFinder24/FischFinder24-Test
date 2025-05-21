@@ -82,15 +82,17 @@ html, body {
 }
 
 #controlPanel input[type="text"],
-#controlPanel input[type="file"] {
+#controlPanel input[type="file"],
+#controlPanel button {
   width: 100%;
-  margin-bottom: 8px;
-  padding: 4px 6px;
+  margin-top: 4px;
+  margin-bottom: 10px;
+  padding: 6px; /* kleiner als vorher */
   font-size: 13px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  height: 30px; /* direkte Höhenbegrenzung */
+  border-radius: 5px;
+}
+
 }
 
 #controlPanel input[type="file"] {

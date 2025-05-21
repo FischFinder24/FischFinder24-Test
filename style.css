@@ -1,115 +1,77 @@
-html, body {
+body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: sans-serif;
-  background: #f0f0f0;
-}
-
-#loginForm {
-  max-width: 300px;
-  margin: 30px auto;
-  padding: 20px;
-  background: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-#loginForm input,
-#loginForm button {
-  display: block;
-  width: 100%;
-  margin-bottom: 12px;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-#loginForm button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-#loginForm button:hover {
-  background-color: #0056b3;
+  font-family: Arial, sans-serif;
 }
 
 #mainApp {
-  height: 100vh;
   width: 100vw;
+  height: 100vh;
   position: relative;
 }
 
 #map {
-  height: 100%;
   width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
+  height: 100%;
   z-index: 1;
 }
 
-#controlPanel {
+/* Formular rechts unten */
+#fishForm {
   position: absolute;
-  top: 20px;
+  bottom: 20px;
   right: 20px;
-  z-index: 1000;
-  width: 280px;
-  background: white;
-  padding: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 16px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  max-width: 300px;
 }
 
-#controlPanel h3 {
-  margin-top: 0;
-  margin-bottom: 12px;
+/* Logo links unten */
+#logo-container {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 999;
 }
 
-#controlPanel label {
-  font-weight: bold;
-  margin-top: 10px;
-  display: block;
+#logo {
+  width: 100px;
+  border-radius: 12px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
 }
 
-#controlPanel input[type="text"],
-#controlPanel input[type="file"],
-#controlPanel button {
+/* Inputs */
+#fishForm input[type="text"],
+#fishForm input[type="file"] {
   width: 100%;
-  margin-top: 6px;
   margin-bottom: 12px;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 6px;
 }
 
-#controlPanel button {
-  background-color: #28a745;
-  color: white;
+/* Buttons */
+#fishForm button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
   border: none;
+  border-radius: 6px;
+  color: white;
   font-weight: bold;
   cursor: pointer;
 }
 
-#controlPanel button[type="button"] {
-  background-color: #dc3545;
+/* Blautöne */
+#saveBtn {
+  background-color: #007BFF; /* kräftiges Blau */
 }
 
-#controlPanel button:hover {
-  opacity: 0.9;
+#logoutBtn {
+  background-color: #5a92c7; /* sanftes Graublau */
 }
 
-#logo {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  z-index: 1000;
-  max-width: 140px;
-  background: white;
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}

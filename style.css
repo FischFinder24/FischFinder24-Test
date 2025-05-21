@@ -134,7 +134,7 @@ html, body {
   z-index: 1000;
 }
   body {
-  background: url("Hintergrundlogin.jpg") no-repeat center center fixed;
+  background: url("Hintergrundbildlogin.jpg") no-repeat center center fixed;
   background-size: cover;
 }
 

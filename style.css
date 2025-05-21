@@ -138,6 +138,24 @@ html, body {
   background-size: cover;
 }
 
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+  background-image: none; /* optional Hintergrund entfernen */
+}
+
+/* Login-Formular dunkler machen */
+body.dark-mode #loginForm {
+  background: rgba(30, 30, 30, 0.95);
+  border: 1px solid #444;
+}
+
+/* Buttons z. B. etwas dunkler */
+body.dark-mode button {
+  background-color: #333;
+  color: #fff;
+}
+
 
 
 }

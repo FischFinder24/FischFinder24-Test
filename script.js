@@ -51,6 +51,8 @@ function showLogin() {
 function showApp() {
   document.getElementById("loginForm").style.display = "none";
   document.getElementById("mainApp").style.display = "block";
+  console.log("Login erfolgreich, App wird angezeigt");
+
 }
 
 async function login() {

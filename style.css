@@ -57,11 +57,13 @@ html, body {
   top: 20px;
   right: 20px;
   z-index: 1000;
-  width: 280px;
+  width: 240px; /* vorher: 280px → etwas schmaler */
   background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  padding: 16px; /* vorher: 20px → dezenter */
+  border-radius: 10px; /* etwas kleiner */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
 }
 
 #controlPanel h3 {

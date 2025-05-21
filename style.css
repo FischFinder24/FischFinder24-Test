@@ -93,7 +93,6 @@ html, body {
   border-radius: 5px;
 }
 
-}
 
 #controlPanel input[type="file"] {
   padding: 2px 4px;
@@ -121,7 +120,6 @@ html, body {
   opacity: 0.9;
 }
 
-}
 
 #logo {
   position: fixed;

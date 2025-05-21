@@ -53,7 +53,7 @@ async function login() {
     alert("Registrierung fehlgeschlagen: " + error.message);
   } else {
     alert("Registrierung erfolgreich. Bitte überprüfe deine E-Mails zur Bestätigung.");
-  }}
+  }
 
 }
 

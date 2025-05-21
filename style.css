@@ -57,11 +57,14 @@ html, body {
   top: 20px;
   right: 20px;
   z-index: 1000;
-  width: 240px; /* vorher: 280px → etwas schmaler */
+  width: 200px; /* noch schmaler */
   background: white;
-  padding: 16px; /* vorher: 20px → dezenter */
-  border-radius: 10px; /* etwas kleiner */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  padding: 12px; /* kompakter */
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  font-size: 14px; /* kleinere Schrift */
+}
+
 }
 
 }

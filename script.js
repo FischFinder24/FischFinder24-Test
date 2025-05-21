@@ -43,7 +43,7 @@ async function login() {
     loadFishFinds();
   }
 
-  async function register() {
+async function register() {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
@@ -54,8 +54,8 @@ async function login() {
   } else {
     alert("Registrierung erfolgreich. Bitte überprüfe deine E-Mails zur Bestätigung.");
   }
-
 }
+
 
 async function logout() {
   await supabase.auth.signOut();

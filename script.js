@@ -2,11 +2,18 @@ const supabaseUrl = "https://esvbufmzaiphhnszcigm.supabase.co";
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVzdmJ1Zm16YWlwaGhuc3pjaWdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDczODY1NzcsImV4cCI6MjA2Mjk2MjU3N30.bbGb6ucq04cSycYup7fS_PO9E9Z0UjBxVkqpizj4w-4";
 const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
+let map, marker;
 
-  // DEBUG-HINWEIS: Session anzeigen
+// Initialisieren nach Laden der Seite
+document.addEventListener("DOMContentLoaded", async () => {
+  // Login-Button mit Funktion verbinden
+  document.querySelector("#loginForm button").addEventListener("click", login);
+
+  // Session abfragen
+  const { data: { session } } = await supabase.auth.getSession();
   console.log("Aktive Session:", session);
 
-  // Notfall-Abmeldung aktivieren durch URL-Schalter (optional)
+  // Logout über URL-Schalter
   if (window.location.hash === "#logout") {
     await supabase.auth.signOut();
     window.location.hash = "";
@@ -15,22 +22,11 @@ const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
   }
 
   if (!session) {
-    showLogin(); // Kein Login → zeige Formular
+    showLogin();
   } else {
-    showApp();   // Login aktiv → zeige App
+    showApp();
     initMap();
     loadFishFinds();
-  }
-});
-
-let map, marker;
-
-});
-
-
-
-
-
   }
 });
 
@@ -43,7 +39,6 @@ function showApp() {
   document.getElementById("loginForm").style.display = "none";
   document.getElementById("mainApp").style.display = "block";
   console.log("Login erfolgreich, App wird angezeigt");
-
 }
 
 async function login() {
@@ -154,7 +149,6 @@ async function loadFishFinds() {
   });
 }
 
-// Und jetzt AUSSERHALB:
 async function deleteFish(id) {
   if (!confirm("Diesen Fund wirklich löschen?")) return;
 
@@ -170,7 +164,3 @@ async function deleteFish(id) {
     loadFishFinds(); // Karte neu laden
   }
 }
-
-
-
-

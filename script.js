@@ -2,8 +2,6 @@ const supabaseUrl = "https://esvbufmzaiphhnszcigm.supabase.co";
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVzdmJ1Zm16YWlwaGhuc3pjaWdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDczODY1NzcsImV4cCI6MjA2Mjk2MjU3N30.bbGb6ucq04cSycYup7fS_PO9E9Z0UjBxVkqpizj4w-4";
 const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
-window.addEventListener("DOMContentLoaded", async () => {
-  const { data: { session } } = await supabase.auth.getSession();
 
   // DEBUG-HINWEIS: Session anzeigen
   console.log("Aktive Session:", session);
@@ -29,15 +27,26 @@ let map, marker;
 
 window.addEventListener("DOMContentLoaded", async () => {
   const { data: { session } } = await supabase.auth.getSession();
+  console.log("Aktive Session:", session);
+
+  if (window.location.hash === "#logout") {
+    await supabase.auth.signOut();
+    window.location.hash = "";
+    showLogin();
+    return;
+  }
 
   if (!session) {
-    // Kein aktiver Login → Loginformular anzeigen
     showLogin();
   } else {
-    // Bereits eingeloggt → sofort App anzeigen
     showApp();
     initMap();
     loadFishFinds();
+  }
+});
+
+
+
 
 
   }

@@ -57,54 +57,66 @@ html, body {
   top: 20px;
   right: 20px;
   z-index: 1000;
-  width: 200px; /* noch schmaler */
+  width: 200px;
   background: white;
-  padding: 12px; /* kompakter */
+  padding: 10px;
   border-radius: 8px;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-  font-size: 14px; /* kleinere Schrift */
-}
-
-}
-
+  font-size: 13px;
 }
 
 #controlPanel h3 {
   margin-top: 0;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
+  font-size: 15px;
 }
 
 #controlPanel label {
-  font-weight: bold;
-  margin-top: 10px;
   display: block;
+  font-weight: bold;
+  margin-top: 6px;
+  margin-bottom: 4px;
+  font-size: 13px;
 }
 
 #controlPanel input[type="text"],
-#controlPanel input[type="file"],
-#controlPanel button {
+#controlPanel input[type="file"] {
   width: 100%;
-  margin-top: 6px;
-  margin-bottom: 12px;
-  padding: 8px;
+  margin-bottom: 8px;
+  padding: 4px 6px;
+  font-size: 13px;
   border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  height: 30px; /* direkte Höhenbegrenzung */
+}
+
+#controlPanel input[type="file"] {
+  padding: 2px 4px;
+  height: 32px;
 }
 
 #controlPanel button {
-  background-color: #28a745;
-  color: white;
-  border: none;
+  width: 100%;
+  padding: 6px 8px;
+  margin-bottom: 8px;
+  font-size: 13px;
   font-weight: bold;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
+  background-color: #007bff;
+  color: white;
 }
 
 #controlPanel button[type="button"] {
-  background-color: #dc3545;
+  background-color: #5a9bd8;
 }
 
 #controlPanel button:hover {
   opacity: 0.9;
+}
+
 }
 
 #logo {

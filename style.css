@@ -103,13 +103,17 @@ html, body {
 }
 
 #logo {
+#logo {
   position: absolute;
-  top: 20px;
+  bottom: 20px; /* statt top: 20px */
   left: 20px;
   z-index: 1000;
   max-width: 140px;
+
   background: white;
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 4px; /* vorher: 10px → Rahmen kleiner */
+  border-radius: 6px; /* etwas kleiner */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 }

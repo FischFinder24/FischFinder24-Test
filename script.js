@@ -126,6 +126,10 @@ if (error) {
     "🦑 Was für ein Tentakel-Tier!"
   ];
   const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+
+  const splashSound = new Audio("https://www.myinstants.com/media/sounds/water-splash.mp3");
+splashSound.play();
+
   alert(randomMsg);
 
   loadFishFinds();

@@ -153,6 +153,23 @@ html, body {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+#instaHint {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+}
+
+#instaHint a {
+  color: #d63384;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#instaHint a:hover {
+  text-decoration: underline;
+}
+
 
 
 

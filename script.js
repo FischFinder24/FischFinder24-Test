@@ -113,12 +113,24 @@ async function saveFish(event) {
     images: imageUrls
   }]);
 
-  if (error) {
-    alert("Speichern fehlgeschlagen: " + error.message);
-  } else {
-    alert("Fisch gespeichert!");
-    loadFishFinds();
-  }
+if (error) {
+  alert("Speichern fehlgeschlagen: " + error.message);
+} else {
+  const messages = [
+    "🎣 Voll an der Angel!",
+    "🐟 Der war ein echter Brocken!",
+    "💦 Platsch – ab ins Logbuch!",
+    "🧜‍♂️ Poseidon ist stolz!",
+    "🐠 Fang des Tages notiert!",
+    "📸 Der wird berühmt!",
+    "🦑 Was für ein Tentakel-Tier!"
+  ];
+  const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+  alert(randomMsg);
+
+  loadFishFinds();
+}
+
 }
 
 async function loadFishFinds() {

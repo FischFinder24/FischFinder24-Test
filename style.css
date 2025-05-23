@@ -154,21 +154,5 @@ html, body {
   100% { transform: rotate(360deg); }
 }
 
-#instaHint {
-  margin-top: 20px;
-  text-align: center;
-  font-size: 14px;
-  color: #333;
-}
-
-#instaHint a {
-  color: #d63384; /* Instagram-rosa */
-  text-decoration: none;
-  font-weight: bold;
-}
-
-#instaHint a:hover {
-  text-decoration: underline;
-}
 
 

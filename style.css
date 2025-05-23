@@ -7,13 +7,23 @@ html, body {
 }
 
 #loginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
   max-width: 300px;
-  margin: 30px auto;
   padding: 20px;
   background: #ffffff;
   border-radius: 8px;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
   text-align: center;
+
+  margin: auto;         /* zentriert horizontal */
+  height: 100vh;        /* volle Höhe für vertikale Zentrierung */
+}
+
 }
 
 #loginForm input,

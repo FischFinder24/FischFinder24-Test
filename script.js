@@ -127,10 +127,6 @@ if (error) {
   ];
   const randomMsg = messages[Math.floor(Math.random() * messages.length)];
 
-  const splashSound = new Audio("https://cdn.pixabay.com/audio/2022/03/15/audio_4d0b2f04cf.mp3");
-splashSound.play();
-
-
   alert(randomMsg);
 
   loadFishFinds();

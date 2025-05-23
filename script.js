@@ -166,9 +166,6 @@ async function deleteFish(id) {
     alert("Eintrag gelöscht!");
     loadFishFinds(); // Karte neu laden
   }
-document.getElementById("toggleDarkMode").addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-});
 
 
 }

@@ -55,6 +55,7 @@ body {
 
 #controlPanel {
   position: absolute;
+  margin-right: 5px;
   top: 20px;
   right: 20px;
   z-index: 1000;
